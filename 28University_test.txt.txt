@@ -1,0 +1,7 @@
+Nina Solomey 38 10000 7 88.7
+Danyil Tomarchyk 41 12000 9 94.3
+Anastasia Dymyk 31 9000 5 79.8
+Christuna Ponomar 35 10000 6 97.7
+Alina Myrenko 29 11000 4 77.5
+Julia Ivasyk 43 12000 9 96.9
+
