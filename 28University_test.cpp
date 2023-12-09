@@ -1,43 +1,43 @@
-//задача 28.University, група комп'ютерна математика 2, Ільченко.
-//тестовий файл
+//Р·Р°РґР°С‡Р° 28.University, РіСЂСѓРїР° РєРѕРјРї'СЋС‚РµСЂРЅР° РјР°С‚РµРјР°С‚РёРєР° 2, Р†Р»СЊС‡РµРЅРєРѕ.
+//С‚РµСЃС‚РѕРІРёР№ С„Р°Р№Р»
 
 
-#include "28Universityy.h" // підключаємо заголовочний файл і бібліотеки
+#include "28Universityy.h" // РїС–РґРєР»СЋС‡Р°С”РјРѕ Р·Р°РіРѕР»РѕРІРѕС‡РЅРёР№ С„Р°Р№Р» С– Р±С–Р±Р»С–РѕС‚РµРєРё
 #include <iostream>
 #include <fstream>
 
-using namespace std; // підключаємо простір імен
+using namespace std; // РїС–РґРєР»СЋС‡Р°С”РјРѕ РїСЂРѕСЃС‚С–СЂ С–РјРµРЅ
 
 int main(int argc, char *argv[]) {
-    // Тест 1: Перевірка кількості аргументів командного рядка
+    // РўРµСЃС‚ 1: РџРµСЂРµРІС–СЂРєР° РєС–Р»СЊРєРѕСЃС‚С– Р°СЂРіСѓРјРµРЅС‚С–РІ РєРѕРјР°РЅРґРЅРѕРіРѕ СЂСЏРґРєР°
     if (argc != 2) {
         cerr << "Usage: " << argv[0] << " <input_mode>\n";
         cerr << "   <input_mode>: 1 for console input, 2 for file input\n";
         return 1;
     }
 
-    // Тест 2: Перевірка, чи виводиться повідомлення про неправильне значення аргументу командного рядка.
-    int inputMode = std::atoi(argv[1]); // Перетворюємо рядок на ціле число.
+    // РўРµСЃС‚ 2: РџРµСЂРµРІС–СЂРєР°, С‡Рё РІРёРІРѕРґРёС‚СЊСЃСЏ РїРѕРІС–РґРѕРјР»РµРЅРЅСЏ РїСЂРѕ РЅРµРїСЂР°РІРёР»СЊРЅРµ Р·РЅР°С‡РµРЅРЅСЏ Р°СЂРіСѓРјРµРЅС‚Сѓ РєРѕРјР°РЅРґРЅРѕРіРѕ СЂСЏРґРєР°
+    int inputMode = std::atoi(argv[1]); // РџРµСЂРµС‚РІРѕСЂСЋС”РјРѕ СЂСЏРґРѕРє РЅР° С†С–Р»Рµ С‡РёСЃР»Рѕ.
     if (inputMode != 1 && inputMode != 2) {
         std::cerr << "Test 2 Failed: Invalid input_mode\n";
         std::cerr << "Usage: " << argv[0] << " <input_mode>\n";
         std::cerr << "   <input_mode>: 1 for console input, 2 for file input\n";
-        return 1; // Помилка у використанні програми.
+        return 1;// РџРѕРјРёР»РєР° Сѓ РІРёРєРѕСЂРёСЃС‚Р°РЅРЅС– РїСЂРѕРіСЂР°РјРё.
     }
 
-    // Тест 3: Перевірка, чи програма працює правильно при коректному введенні аргументу.
+    // РўРµСЃС‚ 3: РџРµСЂРµРІС–СЂРєР°, С‡Рё РїСЂРѕРіСЂР°РјР° РїСЂР°С†СЋС” РїСЂР°РІРёР»СЊРЅРѕ РїСЂРё РєРѕСЂРµРєС‚РЅРѕРјСѓ РІРІРµРґРµРЅРЅС– Р°СЂРіСѓРјРµРЅС‚Сѓ.
     std::cout << "Test 3 Passed: Correct usage with input_mode = " << inputMode << "\n";
 
 
-    // Отримання режиму введення з аргументів командного рядка
+    // РћС‚СЂРёРјР°РЅРЅСЏ СЂРµР¶РёРјСѓ РІРІРµРґРµРЅРЅСЏ Р· Р°СЂРіСѓРјРµРЅС‚С–РІ РєРѕРјР°РЅРґРЅРѕРіРѕ СЂСЏРґРєР°
     int inputMode = atoi(argv[1]);
 
     vector<Human*> universityMembers;
 
     if (inputMode == 1) {
-        // Режим введення з консолі
+        // Р РµР¶РёРј РІРІРµРґРµРЅРЅСЏ Р· РєРѕРЅСЃРѕР»С–
 
-        // дані працівника
+        // РґР°РЅС– РїСЂР°С†С–РІРЅРёРєР°
         cout << "Enter worker data:\n";
         double baseRate;
         int experience;
@@ -56,33 +56,33 @@ int main(int argc, char *argv[]) {
         cout << "Experience: ";
         cin >> experience;
 
-        // дані викладача
+        // РґР°РЅС– РІРёРєР»Р°РґР°С‡Р°
         cout << "Enter teacher data:\n";
         int degree;
         cout << "Degree: ";
         cin >> degree;
 
-        // дані студента
+        // РґР°РЅС– СЃС‚СѓРґРµРЅС‚Р°
         cout << "Enter student data:\n";
         double averageGrade;
         cout << "averageGrade: ";
         cin >> averageGrade;
 
-        // дані заліковки
+        // РґР°РЅС– Р·Р°Р»С–РєРѕРІРєРё
         cout << "Enter transcript data:\n";
         string studentName;
         cout << "studentName: ";
         cin >> studentName;
 
-        // дані професії
+        // РґР°РЅС– РїСЂРѕС„РµСЃС–С—
         cout << "Enter profession data:\n";
         string nameProfession;
         cout << "name of the profession: ";
 
-        // Режим введення з текстового файлу
+        // Р РµР¶РёРј РІРІРµРґРµРЅРЅСЏ Р· С‚РµРєСЃС‚РѕРІРѕРіРѕ С„Р°Р№Р»Сѓ
         ifstream inputFile("28University_test.txt.txt");
 
-        // Тест 1: Перевірка, чи відбувається правильне відкриття файлу.
+        // РўРµСЃС‚ 1: РџРµСЂРµРІС–СЂРєР°, С‡Рё РІС–РґР±СѓРІР°С”С‚СЊСЃСЏ РїСЂР°РІРёР»СЊРЅРµ РІС–РґРєСЂРёС‚С‚СЏ С„Р°Р№Р»Сѓ.
         if (!inputFile.is_open()) {
             cerr << "cannot open 28University_test.txt.txt for reading.\n";
             return 1;
@@ -90,7 +90,7 @@ int main(int argc, char *argv[]) {
         std::cout << "Test 1 Passed: File opened successfully for reading.\n";
     }
 
-        // зчитування даних з файлу
+        // Р·С‡РёС‚СѓРІР°РЅРЅСЏ РґР°РЅРёС… Р· С„Р°Р№Р»Сѓ
         // Worker
         while (inputFile >> name >> age >> baseRate >> experience) {
             universityMembers.push_back(Worker(name, age, baseRate, experience));
@@ -118,29 +118,29 @@ int main(int argc, char *argv[]) {
 
         inputFile.close();
 
-        // Тест 2: Перевірка, чи виводиться повідомлення про помилку, якщо файл не існує.
+        // РўРµСЃС‚ 2: РџРµСЂРµРІС–СЂРєР°, С‡Рё РІРёРІРѕРґРёС‚СЊСЃСЏ РїРѕРІС–РґРѕРјР»РµРЅРЅСЏ РїСЂРѕ РїРѕРјРёР»РєСѓ, СЏРєС‰Рѕ С„Р°Р№Р» РЅРµ С–СЃРЅСѓС”.
         std::ifstream nonExistentFile("non_existent_file.txt");
 
     if (!nonExistentFile.is_open()) {
         std::cout << "Test 2 Passed: Cannot open non_existent_file.txt for reading (as expected).\n";
     } else {
         std::cerr << "Test 2 Failed: File non_existent_file.txt opened unexpectedly.\n";
-        return 1; // Помилка: файл, якого не повинно було відкривати, відкрито.
+        return 1; // РџРѕРјРёР»РєР°: С„Р°Р№Р», СЏРєРѕРіРѕ РЅРµ РїРѕРІРёРЅРЅРѕ Р±СѓР»Рѕ РІС–РґРєСЂРёРІР°С‚Рё, РІС–РґРєСЂРёС‚Рѕ.
     }
 
 
-        //Якщо режим введення не відповідає жодному із дозволених режимів
-        // програма виводить повідомлення про невірний режим введення та завершується з кодом повернення 1
+        //РЇРєС‰Рѕ СЂРµР¶РёРј РІРІРµРґРµРЅРЅСЏ РЅРµ РІС–РґРїРѕРІС–РґР°С” Р¶РѕРґРЅРѕРјСѓ С–Р· РґРѕР·РІРѕР»РµРЅРёС… СЂРµР¶РёРјС–РІ
+        // РїСЂРѕРіСЂР°РјР° РІРёРІРѕРґРёС‚СЊ РїРѕРІС–РґРѕРјР»РµРЅРЅСЏ РїСЂРѕ РЅРµРІС–СЂРЅРёР№ СЂРµР¶РёРј РІРІРµРґРµРЅРЅСЏ С‚Р° Р·Р°РІРµСЂС€СѓС”С‚СЊСЃСЏ Р· РєРѕРґРѕРј РїРѕРІРµСЂРЅРµРЅРЅСЏ 1
     } else {
         cerr << "Invalid input mode. Use 1 for console input or 2 for file input.\n";
         return 1;
     }
-    //Якщо режим введення є правильним - вивід у форматі json
+     //РЇРєС‰Рѕ СЂРµР¶РёРј РІРІРµРґРµРЅРЅСЏ С” РїСЂР°РІРёР»СЊРЅРёРј - РІРёРІС–Рґ Сѓ С„РѕСЂРјР°С‚С– json
     cout << "University Members:\n";
     printJson(universityMembers);
 
     for (auto& member : universityMembers) {
-        delete member;//очищення пам'яті
+        delete member;//РѕС‡РёС‰РµРЅРЅСЏ РїР°Рј'СЏС‚С–
     }
 
     return 0;
