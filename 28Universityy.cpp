@@ -3,39 +3,39 @@
 
 // Файл 28University.cpp
 
-#include "28Universityy.h" //ï³äêëþ÷àºìî çàãîëîâî÷íèé ôàéë ³ á³áë³îòåêè
+#include "28Universityy.h" //підключаємо заголовочний файл і бібліотеки
 #include <fstream>
 
-using namespace std;//ï³äêëþ÷àºìî ïðîñò³ð ³ìåí
+using namespace std;//підключаємо простір імен
 
-// Ðåàë³çàö³ÿ êëàñó Worker
-Worker::Worker(const string& n, int a, double b, int e) //ïàðàìåòðè êîíñòðóåòîðà
-    : baseRate(b), experience(e) { // ³í³ö³àë³çàö³þ ïîë³â êëàñó Worker
+// Реалізація класу Worker
+Worker::Worker(const string& n, int a, double b, int e) //параметри конструетора
+    : baseRate(b), experience(e) { // ініціалізацію полів класу Worker
     name = n;
     age = a;
 }
-//ôóíêö³ÿ âèâîäó äàíèõ
+//функція виводу даних
 void Worker::display() const {
     cout << "Worker: " << name << ", Age: " << age << ", Base Rate: $" << baseRate
               << ", Experience: " << experience << " years";
 }
-// òåñò1: ïåðåâ³ðêà. Ñòâîðåííÿ îá'ºêòà êëàñó Worker äëÿ òåñòóâàííÿ
+// тест1: перевірка. Створення об'єкта класу Worker для тестування
     Worker worker("John Doe", 30, 50000.0, 5);
 
-    // Âèêëèê ôóíêö³¿ display äëÿ âèâåäåííÿ ³íôîðìàö³¿ ïðî ïðàö³âíèêà
+    // Виклик функції display для виведення інформації про працівника
     cout << "Test 1: Display Worker Information\n";
-    worker.display(); // âèâåäå ³íôîðìàö³þ ïðî ïðàö³âíèêà
+    worker.display(); // виведе інформацію про працівника
 
 
-double Worker::calculateSalary() const { //ôóíêö³ÿ, ùî ï³äðàõîâóº çàðîá³òíþ ïëàòó
+double Worker::calculateSalary() const { //функція, що підраховує заробітню плату
     return baseRate * (1 + 0.1 * experience);
 }
-//òåñò 2
-// Âèêëèê ôóíêö³¿ calculateSalary äëÿ ï³äðàõóíêó çàðîá³òíî¿ ïëàòè
-    double expectedSalary = 50000.0 * (1 + 0.1 * 5); // Î÷³êóºòüñÿ, ùî öå áóäå ïðàâèëüíà çàðîá³òíà ïëàòà
+//тест 2
+// Виклик функції calculateSalary для підрахунку заробітної плати
+    double expectedSalary = 50000.0 * (1 + 0.1 * 5); // Очікується, що це буде правильна заробітна плата
     double actualSalary = worker.calculateSalary();
 
-    // Ïîð³âíÿííÿ î÷³êóâàíî¿ òà îòðèìàíî¿ çàðîá³òíî¿ ïëàòè
+    // Порівняння очікуваної та отриманої заробітної плати
     cout << "Test 1: Calculate Salary\n";
     if (expectedSalary == actualSalary) {
         cout << "  Passed: Salary calculation is correct.\n";
@@ -46,48 +46,48 @@ double Worker::calculateSalary() const { //ôóíêö³ÿ, ùî ï³äðàõîâ
 
 
 double Worker::calculateScholarship() const {
-    return 0.0; // ðîá³òíèêè íå îòðèìóþòü ñòèïåíä³þ
+    return 0.0; // робітники не отримують стипендію
 }
 
-// Ðåàë³çàö³ÿ êëàñó Professor
+// Реалізація класу Professor
 Professor::Professor(const string& n, int a, double b, int e, int d)
     : Worker(n, a, b, e), degree(d) {}
-//ôóíêö³ÿ âèâîäó äàíèõ
+//функція виводу даних
 void Professor::display() const {
     Worker::display();
     cout << ", Degree: " << degree << " degree\n";
 }
-//òóò òåñò áóäå àíàëîã³÷íèì äî òåñòó 1
+//тут тест буде аналогічним до тесту 1
 
-// Ðåàë³çàö³ÿ êëàñó Student
+// Реалізація класу Student
 Student::Student(const string& n, int a, double avg)
     : averageGrade(avg) {
     name = n;
     age = a;
 }
-//ôóíêö³ÿ âèâîäó äàíèõ
+//функція виводу даних
 void Student::display() const {
     cout << "Student: " << name << ", Age: " << age << ", Average Grade: " << averageGrade;
 }
-//òåñò áóäå àíàëîã³÷íèì äî òåñòó 1
+//тест буде аналогічним до тесту 1
 
 double Student::calculateSalary() const {
     return 0.0; // ñòóäåíòè íå îòðèìóþòü çàðïëàòè
 }
 
-//ôóíêö³ÿ, ùî ï³äðàõîâóº  ñòèïåíä³þ
+//функція, що підраховує  стипендію
 double Student::calculateScholarship() const {
-    return 500 + 100 * averageGrade; // ïðèêëàä ï³äðàõóíêó ñòèïåíä³¿
+    return 500 + 100 * averageGrade; // приклад підрахунку стипендії
 }
-//òåñò 3
-// Ñòâîðåííÿ îá'ºêòà êëàñó Student äëÿ òåñòóâàííÿ
+//тест 3
+// Створення об'єкта класу Student для тестування
     Student student("Alice", 20, 3.8);
 
-    // Âèêëèê ôóíêö³¿ calculateScholarship äëÿ ï³äðàõóíêó ñòèïåíä³¿
-    double expectedScholarship = 500 + 100 * 3.8; // Î÷³êóºòüñÿ, ùî öå áóäå ïðàâèëüíà ñòèïåíä³ÿ
+    // Виклик функції calculateScholarship для підрахунку стипендії
+    double expectedScholarship = 500 + 100 * 3.8; // Очікується, що це буде правильна стипендія
     double actualScholarship = student.calculateScholarship();
 
-    // Ïîð³âíÿííÿ î÷³êóâàíî¿ òà îòðèìàíî¿ ñòèïåíä³¿
+    // Порівняння очікуваної та отриманої стипендії
     cout << "Test 1: Calculate Scholarship\n";
     if (abs(expectedScholarship - actualScholarship) < 1e-6) {
         cout << "  Passed: Scholarship calculation is correct.\n";
@@ -96,22 +96,22 @@ double Student::calculateScholarship() const {
         cout << "  Expected: $" << expectedScholarship << ", Actual: $" << actualScholarship << "\n";
     }
 
-// Ðåàë³çàö³ÿ êëàñó Transcript
-//ôóíêö³ÿ âèâîäó äàíèõ
+// Реалізація класу Transcript
+//функція виводу даних
 void Transcript::display() const {
     cout << "Transcript: " << studentName << ", Average Grade: " << averageGrade << "\n";
 }
-//òåñò àíàëîã³÷íèé òåñòó 1
+//тест аналогічний тесту 1
 
-// Ðåàë³çàö³ÿ êëàñó Profession
-//ôóíêö³ÿ âèâîäó äàíèõ
+// Реалізація класу Profession
+//функція виводу даних
 void Profession::display() const {
     cout << "Profession: " << nameProfession << ", Base Rate: $" << baseRate << "\n";
 }
-//òåñò àíàëîã³÷íèé òåñòó 1
+//тест аналогічний тесту 1
 
 
-// Ðåàë³çàö³ÿ ôóíêö³¿ printJson
+// Реалізація функції printJson
 template <typename T>
 void printJson(const vector<T*>& vec) {
     for (const auto& obj : vec) {
