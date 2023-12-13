@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
 
 
     // Отримання режиму введення з аргументів командного рядка
-    int inputMode = atoi(argv[1]);
+    inputMode = atoi(argv[1]);
 
     vector<Human*> universityMembers;
 
