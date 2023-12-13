@@ -24,7 +24,7 @@ void Worker::display() const {
 
     // Виклик функції display для виведення інформації про працівника
     cout << "Test 1: Display Worker Information\n";
-    worker.display(); // виведе інформацію про працівника
+    Worker.display(); // виведе інформацію про працівника
 
 
 double Worker::calculateSalary() const { //функція, що підраховує заробітню плату
