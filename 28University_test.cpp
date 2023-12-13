@@ -19,14 +19,14 @@ int main(int argc, char *argv[]) {
     // Тест 2: Перевірка, чи виводиться повідомлення про неправильне значення аргументу командного рядка
     int inputMode = std::atoi(argv[1]); // Перетворюємо рядок на ціле число.
     if (inputMode != 1 && inputMode != 2) {
-        std::cerr << "Test 2 Failed: Invalid input_mode\n";
-        std::cerr << "Usage: " << argv[0] << " <input_mode>\n";
-        std::cerr << "   <input_mode>: 1 for console input, 2 for file input\n";
+        cerr << "Test 2 Failed: Invalid input_mode\n";
+        cerr << "Usage: " << argv[0] << " <input_mode>\n";
+        cerr << "   <input_mode>: 1 for console input, 2 for file input\n";
         return 1;// Помилка у використанні програми.
     }
 
     // Тест 3: Перевірка, чи програма працює правильно при коректному введенні аргументу.
-    std::cout << "Test 3 Passed: Correct usage with input_mode = " << inputMode << "\n";
+    cout << "Test 3 Passed: Correct usage with input_mode = " << inputMode << "\n";
 
 
     // Отримання режиму введення з аргументів командного рядка
@@ -87,7 +87,7 @@ int main(int argc, char *argv[]) {
             cerr << "cannot open 28University_test.txt.txt for reading.\n";
             return 1;
         } else {
-        std::cout << "Test 1 Passed: File opened successfully for reading.\n";
+        cout << "Test 1 Passed: File opened successfully for reading.\n";
     }
 
         // зчитування даних з файлу
@@ -119,12 +119,12 @@ int main(int argc, char *argv[]) {
         inputFile.close();
 
         // Тест 2: Перевірка, чи виводиться повідомлення про помилку, якщо файл не існує.
-        std::ifstream nonExistentFile("non_existent_file.txt");
+        ifstream nonExistentFile("non_existent_file.txt");
 
     if (!nonExistentFile.is_open()) {
-        std::cout << "Test 2 Passed: Cannot open non_existent_file.txt for reading (as expected).\n";
+        cout << "Test 2 Passed: Cannot open non_existent_file.txt for reading (as expected).\n";
     } else {
-        std::cerr << "Test 2 Failed: File non_existent_file.txt opened unexpectedly.\n";
+        cerr << "Test 2 Failed: File non_existent_file.txt opened unexpectedly.\n";
         return 1; // Помилка: файл, якого не повинно було відкривати, відкрито.
     }
 
